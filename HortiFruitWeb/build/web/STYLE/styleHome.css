@@ -1,0 +1,343 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+ul.menu {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+ul.menu li {
+    margin: 0 10px;
+    position: relative;
+}
+
+ul.menu li a {
+    text-decoration: none;
+    color: #FFF;
+}
+
+ul.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #333;
+    width: 200px;
+}
+
+ul.menu li:hover .submenu {
+    display: block;
+}
+
+ul.submenu li {
+    display: block;
+    padding: 1px 0;
+}
+
+.submenu li a {
+    color: #FFF;
+    text-decoration: none;
+    display: block;
+    padding: 5px 15px;
+}
+
+.submenu li:hover {
+    background: #1AAEB0; 
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+hr {
+    width: 80%;
+}
+
+.container {
+    background-image: url(../ASSETS/IMAGES/background_alface.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+header, footer {
+    background-image: linear-gradient(50deg,#21a35bb5,#1aadb0b7);
+    color: #FFF;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: fit-content;
+    /* height: 5%; */
+    z-index: 2;
+    padding: 0.5em 0em;
+}
+
+
+header>div:nth-child(3){
+    justify-content: flex-end;
+}
+
+.header-div{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0em 1em;
+}
+
+/*
+    azul:#1AAEB0;
+    ciano-verde:#1CBA90;
+    verde:#21A35C;
+*/
+
+.bg-black {
+    background: #000;
+    opacity: 0.3;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.card {
+    width: 30%;
+    min-width: 20em;
+    height: 40em;
+    display: flex;
+    flex-direction: column;
+    background: #FFF;
+    z-index: 2;
+    justify-content: space-evenly;
+    padding: 1em;
+}
+
+.icon-login {
+    width: 3em;
+    border: 0.5px solid rgba(0, 0, 0, 0.2);
+    border-radius: 100%;
+    box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.4);
+}
+
+.input-pack {
+    width: 100%;
+    
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 1em 0em;
+    align-items: center;
+}
+
+.input-pack>label {
+    font-weight: bolder;
+}
+
+.input-pack>input, .input-pack>button {
+    width: 19em;
+    padding: 0.8em 1em;
+}
+
+.input-pack>input {
+    border: none;
+    border-bottom: 2px solid green;
+    background: none;
+    border-radius: 2px 2px 0 0;
+    transition: 200ms;
+    color: #000000;    
+}
+
+.input-pack>input:hover{
+    transition: 500ms;
+    border-bottom: 2px solid green;
+    background-color: #1dc296;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+.input-pack>input:focus {
+    outline: none;
+    background-color: #1dc2967a;
+}
+
+.input-pack>button {
+    background: #21A35C;
+    color: #FFF;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+
+
+.menu-button {
+    cursor: pointer;
+    color: #FFF;
+}
+
+.menu-dropdown {
+    display: none;
+    top: 100%;
+    right: 0;
+    background: #333;
+}
+
+.input-pack>button:hover {
+    transform: scale(1.05);
+    transition: 300ms;
+}
+
+.menu-button:hover + .menu-dropdown {
+    display: block;
+}
+
+.card-holder{
+    width: 50%;
+    height: 55%;
+    background-color: #c9c8c8;
+    z-index: 2;
+    filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.4));
+}
+
+.card-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(50deg,#1bc568b5,#168f91b7);
+    z-index: 1;
+    filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.4));
+    /* padding: 0.5em 0em; */
+    font-size: 2em;
+}
+
+.card-header > p{
+   color: white;
+}
+
+.card-body {  
+    text-align: center;
+    gap: 1em 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body > input:focus{
+    outline: none;
+}
+
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+    background-color: #21A35C;
+    color: #ffffff;
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInBottom 5s ease-out;
+    animation-fill-mode: backwards;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+/*card*/
+#popupOk, #popupError{
+    position: absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    z-index: 3;
+    display:none;
+    justify-content: center;
+    align-items: center;
+}
+
+#popupOk>.bg-black, #popupError>.bg-black{
+    z-index: -1;
+}
+
+.displayView{
+    display:flex !important;
+}
+
+.cardOk{border-top:2em solid green;}
+.cardError{border-top:2em solid red;}
+
+.cardOk, .cardError{
+    background: #FFF;
+    width:20em;
+    gap: 1em 0em;
+    padding:2em;
+    z-index:20;
+    opacity: 100%;
+    height:fit-content;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    animation: cardBorn 100ms normal;
+}
+
+.cardOk>button{ background: green;}
+.cardError>button{ background: red;}
+
+.cardOk>button, .cardError>button{
+    color:#FFF; 
+    border:none;
+    padding:0.5em 0em;
+    cursor: pointer;
+}
+
+@keyframes cardBorn{
+    0%{width:0em; }
+    100%{width:20em;}
+}

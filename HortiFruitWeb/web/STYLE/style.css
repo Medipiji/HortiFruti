@@ -1,0 +1,132 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+}
+
+html, body, .container, .bg-black, .bg-colorfull{
+    width:100%;
+    height:100%;
+}
+
+hr{
+    width: 80%;
+}
+
+/*
+    azul:#1AAEB0;
+    ciano-verde:#1CBA90;
+    verde:#21A35C;
+*/
+
+.container, .card, .input-pack, #popupOk, #popupError{
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    background-image: url("../ASSETS/IMAGES/background_alface.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+}
+
+.bg-black{
+    background: #000;
+    opacity: 60%;
+    position: absolute;
+    top:0px;
+    left:0px;
+    z-index: 1;
+}
+
+.bg-colorfull{
+    background-image: linear-gradient(rgba(33,163,92,64), rgba(26,174,176,69));
+    opacity: 60%;
+    position: fixed;
+    top:0px;
+    left:0px;
+    z-index: 2;
+}
+
+
+.card{
+    width: 30%;
+    min-width: 20em;
+    height: 100%;
+    display:flex;
+    flex-direction: column;
+    background: #FFF;
+    z-index: 3;
+    justify-content: space-evenly;
+}
+
+.icon-login{ 
+    width: 4em; 
+}
+
+.input-pack{
+    width:100%;
+    gap: 1em 0em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 1em 0em;
+}
+
+.input-pack>label{ font-weight: bolder; }
+.input-pack>input, .input-pack>button{ width: 19em; padding: 1em 0em; }
+.input-pack>input{ background: none; border:none; border-bottom: 4px solid #21A35C; }
+.input-pack>input:focus{ outline:none; }
+.input-pack>button{ background: #21A35C; color: #FFF; font-weight: bold; border:none; cursor: pointer; transition: 300ms; }
+.input-pack>button:hover{ transform: scale(1.05); transition: 300ms; }
+
+
+#popupOk, #popupError{
+    position: absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    z-index: 3;
+    display:none;
+}
+
+#popupOk>.bg-black, #popupError>.bg-black{
+    z-index: -1;
+}
+
+.displayView{
+    display:flex !important;
+}
+
+.cardOk{border-top:2em solid green;}
+.cardError{border-top:2em solid red;}
+
+.cardOk, .cardError{
+    background: #FFF;
+    width:20em;
+    gap: 1em 0em;
+    padding:2em;
+    z-index:20;
+    opacity: 100%;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    animation: cardBorn 100ms normal;
+}
+
+.cardOk>button{ background: green;}
+.cardError>button{ background: red;}
+
+.cardOk>button, .cardError>button{
+    color:#FFF; 
+    border:none;
+    padding:0.5em 0em;
+    cursor: pointer;
+}
+
+@keyframes cardBorn{
+    0%{width:0em; }
+    100%{width:20em;}
+}
