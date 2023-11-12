@@ -19,7 +19,11 @@ public class Redirect {
         
         switch (path) {
             // ROTA VAZIA PADRÃO
-             case "":
+            case "":
+                obj.Path("../paginas/initial/homeExternal.jsp");
+                obj.Dispatcher("paginasContainer/indexInitial.jsp");
+                break;
+             case "/":
                 obj.Path("../paginas/initial/homeExternal.jsp");
                 obj.Dispatcher("paginasContainer/indexInitial.jsp");
                 break;
@@ -41,7 +45,7 @@ public class Redirect {
                 break;
             // AREA DE ERRO (NENHUMA ROTA RECONHECIDA)
             default:
-                obj.Path("../paginas/initial/homeExternal.jsp");
+                obj.Path("../paginas/utility/notFound.jsp");
                 obj.Dispatcher("paginasContainer/indexInitial.jsp");
                 break;
         }

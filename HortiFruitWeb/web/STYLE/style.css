@@ -126,6 +126,10 @@ hr{
     cursor: pointer;
 }
 
+.not-found-container{ 
+    background-image: linear-gradient(rgba(33,163,92,64), rgba(26,174,176,69));
+}
+
 @keyframes cardBorn{
     0%{width:0em; }
     100%{width:20em;}

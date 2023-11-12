@@ -17,9 +17,9 @@
         <link rel="icon" type="image/png" href="./ASSETS/IMAGES/icon.png" >
         <link rel="stylesheet" type="text/css" href="./STYLE/style.css" >
         <link rel="stylesheet" type="text/css" href="./STYLE/styleHomeExternal.css" >
+        <script defer src="./SCRIPT/scriptInitial.js"></script> 
     </head>
     <body>
         <jsp:include page="<%=paginaAtual%>"/>
-        <script src="./SCRIPT/scriptInitial.js"></script> 
     </body>
 </html>
