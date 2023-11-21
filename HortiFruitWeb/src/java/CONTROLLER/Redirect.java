@@ -43,6 +43,21 @@ public class Redirect {
                 obj.Path("../paginas/userPages/home.jsp");
                 obj.Dispatcher("paginasContainer/app.jsp");
                 break;
+            // PRODUTOS
+            case "/produtos":
+                obj.Path("../paginas/userPages/produtos.jsp");
+                obj.Dispatcher("paginasContainer/app.jsp");
+                break;
+            // CARRINHO
+            case "/carrinho":
+                obj.Path("../paginas/userPages/carrinho.jsp");
+                obj.Dispatcher("paginasContainer/app.jsp");
+                break;
+            // INSERIR PRODUTO
+            case "/inserirProdutos":
+                obj.Path("../paginas/adminPages/inserir_produtos.jsp");
+                obj.Dispatcher("paginasContainer/app.jsp");
+                break;
             // AREA DE ERRO (NENHUMA ROTA RECONHECIDA)
             default:
                 obj.Path("../paginas/utility/notFound.jsp");

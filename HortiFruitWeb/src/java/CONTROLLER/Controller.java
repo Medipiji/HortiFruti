@@ -19,7 +19,7 @@ import CONTROLLER.Redirect;
 import MODEL.Path;
 
 
-@WebServlet(urlPatterns = {"", "/login", "/cadastro", "/home", "/carrinho", "/produtos", "/inserirProdutos"})
+@WebServlet(urlPatterns = {"", "/login", "/cadastro"})
 public class Controller extends HttpServlet {
     private static final long serialVersionUID = 1L;
     
@@ -40,9 +40,9 @@ public class Controller extends HttpServlet {
         String caminho = request.getServletPath();
         
         if( caminho != null){
-           Path pathObj = Redirect.checkPath(caminho); 
-           session.setAttribute("paginaAtual", pathObj.Path());
-           dispatcher = request.getRequestDispatcher(pathObj.Dispatcher()); 
+            Path pathObj = Redirect.checkPath(caminho);
+            session.setAttribute("paginaAtual", pathObj.Path());
+            dispatcher = request.getRequestDispatcher(pathObj.Dispatcher()); 
         }
 
         dispatcher.forward(request, response);

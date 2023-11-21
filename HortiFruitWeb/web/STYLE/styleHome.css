@@ -58,7 +58,7 @@ hr {
 }
 
 .container {
-    background-image: url(../ASSETS/IMAGES/background_alface.jpg);
+    background-image: url(../ASSETS/IMAGES/bg-home.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -71,7 +71,7 @@ hr {
 }
 
 header, footer {
-    background-image: linear-gradient(50deg,#21a35bb5,#1aadb0b7);
+    background-image: linear-gradient(50deg,#1AAEB0,#21A35C);
     color: #FFF;
     text-align: center;
     display: flex;
@@ -115,7 +115,7 @@ header>div:nth-child(3){
 .card {
     width: 30%;
     min-width: 20em;
-    height: 40em;
+    height: 20em;
     display: flex;
     flex-direction: column;
     background: #FFF;
@@ -206,10 +206,11 @@ header>div:nth-child(3){
 
 .card-holder{
     width: 50%;
-    height: 55%;
+    height: fit-content;
     background-color: #c9c8c8;
     z-index: 2;
-    filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.4));
+    filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.4));
+    border-radius: 7px;
 }
 
 .card-header{
@@ -219,16 +220,16 @@ header>div:nth-child(3){
     background-image: linear-gradient(50deg,#1bc568b5,#168f91b7);
     z-index: 1;
     filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.4));
-    /* padding: 0.5em 0em; */
-    font-size: 2em;
+    color:#FFF;
+    border-radius: 3px 3px 0px 0px;
 }
 
-.card-header > p{
-   color: white;
-}
 
 .card-body {  
     text-align: center;
+    align-items: center;
+    justify-content: center;
+    background: red;
     gap: 1em 1em;
     display: flex;
     flex-direction: column;
@@ -238,58 +239,90 @@ header>div:nth-child(3){
     outline: none;
 }
 
-.btn:link,
-.btn:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 15px 40px;
-    display: inline-block;
-    border-radius: 100px;
-    transition: all .2s;
+.btn{
+    text-align: center;
+    background-color: #4ca86a;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 90%;
+}
+
+.btn-sair{
+    text-align: center;
+    background-color: red;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 2;
+    width: 90%;
 }
 
 .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background-color: #036735;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  color: white;
+  z-index: 2;
 }
 
-.btn:active {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+
+.container-insert-carrinho{
+    z-index: 10;
+    width: 100%;
+    height:100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(0,0,0,0.5);
+    visibility: hidden;
+}
+.modal-insert-carrinho{
+    width: fit-content;
+    height: fit-content;
+    padding: 2em;
+    background: #FFF;
 }
 
-.btn-white {
-    background-color: #21A35C;
-    color: #ffffff;
+.modal-insert-carrinho input{
+    background: none;
+    border:none;
+    border-bottom: 1px solid  #036735;
+    text-align: center;
 }
 
-.btn-white::after {
-    background-color: #fff;
+.modal-insert-carrinho input:focus{
+    outline: none;
 }
 
-.btn:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
+.visibility{
+    visibility: visible;
 }
 
-.btn-animated {
-    animation: moveInBottom 5s ease-out;
-    animation-fill-mode: backwards;
-}
 
-@keyframes moveInBottom {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
 
-    100% {
-        opacity: 1;
-        transform: translateY(0px);
-    }
-}
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*card*/
+
 #popupOk, #popupError{
     position: absolute;
     top:0px;

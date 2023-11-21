@@ -17,7 +17,7 @@
     <jsp:include page="../utility/header.jsp"/>
     <div class="card-holder">
         <div class="card-header">
-            <p>Pedido</p>
+            <h1>Pedido</h1>
         </div>
         <div class="input-pack">
             <%    

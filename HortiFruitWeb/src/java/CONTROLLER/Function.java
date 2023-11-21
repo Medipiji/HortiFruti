@@ -25,35 +25,11 @@ import DAL.CarrinhoDAL;
 
 
 
-@WebServlet(urlPatterns = {"/Function", "/pedido", "/produtoLista", "/produtoCadastro", "/carrinhoLoad", "/carrinhoInsert", "/deleteProduto", "/finalizarCompra", "/finalizarSessao"})
+@WebServlet(urlPatterns = {"/produtoLista", "/produtoCadastro", "/carrinhoLoad", "/carrinhoInsert", "/deleteProduto", "/finalizarCompra", "/finalizarSessao"})
 public class Function extends HttpServlet {
     
     //FUNÇÃO DE TESTE DO SERVLET
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {   
-
-        if(request.getServletPath().equals("/pedido")){
-            try {
-                boolean resultado = gerarPedido();
-                if(resultado){
-                    String pedido = pegarPedido();
-                    HttpSession session = request.getSession(); // Obtém a sessão 
-                    if(!pedido.equals("")){
-                        session.setAttribute("pedido",pedido);
-                        session.setAttribute("pedidoRealizado",true);
-                    } else {
-                        session.setAttribute("pedido","Ocorreu um erro, tente novamente.");
-                        session.setAttribute("pedidoRealizado",false);
-                    }
-                }else{
-                    response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(Function.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(Function.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        
         if(request.getServletPath().equals("/produtoLista")){
             try{
                  List<Produto> objLista = getProdutos();
@@ -190,15 +166,7 @@ public class Function extends HttpServlet {
         }
     }
      
-    protected boolean gerarPedido() throws SQLException, ClassNotFoundException {
-        PedidoDAL objDAL = new PedidoDAL();
-        return objDAL.gerarCadastro();
-    }
-    
-    protected String pegarPedido() throws SQLException, ClassNotFoundException {
-        PedidoDAL objDAL = new PedidoDAL();
-        return objDAL.pegarCadastro();
-    }
+
     
     protected List<Produto> getProdutos()  throws SQLException, ClassNotFoundException {
         ProdutosDAL objDAL = new ProdutosDAL();

@@ -79,7 +79,7 @@
                         <label>Quantidade</label>
                         <input type="text" name="cadastro-produto-quantidade" required="true"><br>
                         <div class="text-box">
-                            <a onclick="enviarProduto()" href="#" class="btn btn-white btn-animate">Cadastrar</a>
+                            <button onclick="enviarProduto()" class="btn">Cadastrar</button>
                         </div>
                     </div>
                 </form>
