@@ -6,11 +6,8 @@
 <%@page import="MODEL.Usuario"%>
 <%
     String pedido = "";
-    boolean pedidoRealizado = false;
-            
+    boolean pedidoRealizado = false;       
     Usuario usuario = (Usuario) session.getAttribute("usuario");
-    
-    
     if(session.getAttribute("pedido") != null)
     {
         pedido = session.getAttribute("pedido").toString();
@@ -41,8 +38,11 @@
                 <a href="#">Menu</a>
                 <ul class="submenu">
                     <li><a href="home">Pedido</a></li>
-                    <li><a href="produtos">Produtos</a></li>
-                    <li><a href="carrinho">Carrinho</a></li>
+                    <li><a href="produtos" onclick="gerarProdutos()">Produtos</a></li>
+                    <li><a href="carrinho"  
+                    <%if(session.getAttribute("pedido") != null){
+                        out.print("onclick=\"gerarCarrinho("+pedido+")\"");
+                    }%> >Carrinho</a></li>
                     <%if(usuario.Admin()){ out.println("<li><a href='inserirProdutos'>Inserir Produtos</a></li>");}%>
                 </ul>
             </li>

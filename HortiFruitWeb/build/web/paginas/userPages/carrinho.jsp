@@ -32,16 +32,11 @@
     if(session.getAttribute("carrinho") != null){
         lista = (List<Carrinho>) session.getAttribute("carrinho");
     }
-    
-
 %>
- <%--
-        if(session.getAttribute("pedido") != null){
-            out.print("onload='gerarCarrinho("+pedido+")'");
-        }
-        --%> 
-        
-<div class="container">
+
+<div class="container" 
+
+     >
      <jsp:include page="../utility/header.jsp"/>
      <div class="card-holder">
          <div class="card-header">
@@ -49,7 +44,7 @@
          </div>
 
          <div class="card-body">
-             <table>
+             <table style="width:100%;">
                  <thead>
                      <tr>
                          <th> REMOVER </th> 
@@ -64,7 +59,7 @@
                          <% total += item.Valor(); %>
                          <tr>
                              <td>
-                                 <button class="btn-remover" onclick="excluirItem(<%= item.Id() %>)">Remover</button>
+                                 <button class="btn-remover btn-sair" onclick="excluirItem(<%= item.Id() %>)">Remover</button>
                              </td> 
                              <td><%= item.Nm_produto() %></td>
                              <td><%= item.Quantidade() %></td>
@@ -83,7 +78,7 @@
              </div>
          </div>
          <% if(!pedido.isEmpty()){ %>
-             <button class="btn-finalizar"<%if(!pedido.isEmpty()){out.print("onclick='finalizarCompra("+pedido+")'");}%> >Finalizar compra</button>       
+             <button style="width: 100%;" class="btn-finalizar btn"<%if(!pedido.isEmpty()){out.print("onclick='finalizarCompra("+pedido+")'");}%> >Finalizar compra</button>       
          <%}%>
      </div> 
      <jsp:include page="../utility/popup.jsp"/>

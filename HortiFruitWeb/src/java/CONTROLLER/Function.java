@@ -25,7 +25,7 @@ import DAL.CarrinhoDAL;
 
 
 
-@WebServlet(urlPatterns = {"/produtoLista", "/produtoCadastro", "/carrinhoLoad", "/carrinhoInsert", "/deleteProduto", "/finalizarCompra", "/finalizarSessao"})
+@WebServlet(urlPatterns = { "/finalizarCompra", "/finalizarSessao"})
 public class Function extends HttpServlet {
     
     //FUNÇÃO DE TESTE DO SERVLET

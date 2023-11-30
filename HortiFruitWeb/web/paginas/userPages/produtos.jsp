@@ -44,41 +44,41 @@
         </div>
         <div class="card-body">
             <button class="btn" onclick="gerarProdutos()">Recarregar</button>      
-            <table style="width:100%;">
+            <table class="table-style">
                 <tr>
                     <th> NOME </th>
                     <th> CATEGORIA </th>
                     <th> QNTD DISPONÍVEL </th>
                     <th> PREÇO </th>
+                    <%if(usuario.Admin()){
+                        out.println("<th> ADD </th>");    
+                        out.println("<th> EDITAR </th>");
+                        out.println("<th> DELETAR </th>");
+                    }%>
                 </tr>
                 <% if (lista != null && !lista.isEmpty()) { %>
                         <% for (Produto item : lista) { %>
-                        <tr onclick="adicionarAoCarrinho(<%=pedido%>,<% out.print(item.Id()+",'"+item.Nome()+"',"+ item.Quantidade() +","+item.Preco()); %>)">
+                        <tr
+                            <%if(!usuario.Admin()){%>
+                                onclick="adicionarAoCarrinho(<%=pedido%>,<% out.print(item.Id()+",'"+item.Nome()+"',"+ item.Quantidade() +","+item.Preco()); %>)"
+                            <%}%>
+                        >
                             <td><%= item.Nome() %></td>
                             <td><%= item.Categoria() %></td>
                             <td><%= item.Quantidade()%></td>
                             <td>R$ <%= item.Preco() %></p>
+                            <%if(usuario.Admin()){%>
+                                <td><a class="btn-sair btn-add" onclick="adicionarAoCarrinho(<%=pedido%>,<% out.print(item.Id()+",'"+item.Nome()+"',"+ item.Quantidade() +","+item.Preco()); %>)">Add</a></td>
+                                <td><a class="btn-sair btn-editar" onclick="editarProduto(<%out.print(item.Id()+",'"+item.Nome()+"','"+item.Categoria()+"',"+item.Quantidade()+","+item.Preco());%>)">Editar</a></td>
+                                <td><a class="btn-sair" onclick="excluirProduto(<%=item.Id()%>)">Deletar</a></td>
+                            <%}%>
                         </tr>
                         <% } %>
                 <% } %>        
             </table>
         </div>
     </div>
-
-    <div id="idInsert" class="container-insert-carrinho">
-        <div class="modal-insert-carrinho" >
-            <form id="form_inserir_carrinho_teste" method="POST">
-                <input type="hidden" id="idCarrinho" name="idCarrinhoNameCarrinho" value="">
-                <input type="hidden" id="idProduto" name="idProdutoNameCarrinho" value="">
-                <input type="hidden" id="idNmProduto" name="idNmProdutoNameCarrinho" value="">
-                <input type="hidden" id="idValor" name="idValorNameCarrinho" value="">
-                <input type="hidden" id="idEstoque" name="idEstoque" value="">
-                <p>Quantidade</p>
-                <input type="text" id="idQuantidade" name="quantidadeCarrinho" autocomplete="false">
-                <button class="btn" onclick="adicionarProdutoCarrinho()">Adicionar</button>
-                <button class="btn-sair" onclick="mostrarModalInsert()">Sair</button>
-            </form>
-        </div>
-    </div>
+    <jsp:include page="../utility/modalAdd.jsp"/>
+    <jsp:include page="../utility/modalEdit.jsp"/>
     <jsp:include page="../utility/footer.jsp"/>
 </div>

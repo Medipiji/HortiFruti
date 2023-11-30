@@ -132,6 +132,80 @@ function adicionarProdutoCarrinho(){
      }
 }
 
+function mostrarModalEdit(){
+    const modal = document.getElementById("idEdit");
+    modal.classList.toggle("visibility");
+}
+
+function editarProduto(idProduto, nmProduto, categoriaProduto, estoque, valor){
+    mostrarModalEdit();
+    document.getElementById("idProdutoEdit").value = idProduto;
+    document.getElementById("nmProdutoEdit").value = nmProduto;
+    document.getElementById("categoriaEdit").value = categoriaProduto;
+    document.getElementById("estoqueEdit").value = estoque;
+    document.getElementById("valorEdit").value = valor;
+}
+
+async function enviarEditar(){
+     try{    
+        const data = {
+            idProdutoEdit: document.getElementById("idProdutoEdit").value,
+            nmProdutoEdit: document.getElementById("nmProdutoEdit").value,
+            categoriaEdit: document.getElementById("categoriaEdit").value,
+            estoqueEdit: document.getElementById("estoqueEdit").value,
+            valorEdit:  document.getElementById("valorEdit").value
+        };      
+        const params = new URLSearchParams(data);
+
+       await fetch("editarProduto",
+       {
+           method: "POST",
+           headers: { 'Content-Type':'application/x-www-form-urlencoded'},
+           body: params
+       })
+       .then(res => {
+           if(res.ok){
+               mostrarModalEdit();
+               return true;
+           } else {
+               alert("Erro ao cadastrar produto.");
+               return false;
+           }
+       });   
+       gerarProdutos();
+     } catch(ex){
+         alert(ex);
+     }
+}
+
+async function excluirProduto(idProduto){
+    const parametro = new URLSearchParams();
+    parametro.append("idProduto", idProduto);
+    const resultado = await fetch("excluirProduto",{
+        method:"POST",
+        headers:{'Content-Type':'application/x-www-form-urlencoded'},
+        body:parametro,
+    })
+    .then(res=>{
+        if(res.ok){
+            return true;
+        } else {
+            return false;
+        }
+    })
+    .catch(err => {
+        console.error(err);
+        return false;
+    });
+    
+    if(resultado){
+        gerarProdutos();
+    } else {
+        showPopupError();
+    }
+}
+
+
 function excluirItem(idCarrinho){
     try{
         const url = `deleteProduto?idCarrinho=${idCarrinho}`;

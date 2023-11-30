@@ -56,4 +56,38 @@ public class ProdutosDAL {
             return false;
         }
     }
+    
+     public boolean excluirProduto(String ID) throws SQLException, ClassNotFoundException {
+        String query = "DELETE FROM PRODUTOS WHERE ID = "+ID;
+        
+        try{
+            Connection conn = ConnectionDAL.connectionOpen();
+                Statement  stmt = conn.createStatement();
+                    stmt.executeUpdate(query);
+                stmt.close();
+            conn.close();
+            
+            return true;
+        } catch(Exception e){
+            return false;
+        }
+    }
+    
+    public boolean editarProduto(String idProduto, String idNmProduto,String idCategoria,String idEstoque, String idValor) throws SQLException, ClassNotFoundException {
+        
+        String table = "produtos";
+        String values = "NOME='"+idNmProduto+"', CATEGORIA='"+idCategoria+"',PRECO='"+idValor+"',QUANTIDADE='"+idEstoque+"' WHERE ID = '"+idProduto+"'";
+        String query = "UPDATE "+table+" SET "+values;
+        try{
+            Connection conn = ConnectionDAL.connectionOpen();
+                Statement  stmt = conn.createStatement();
+                    stmt.executeUpdate(query);
+                stmt.close();
+            conn.close();
+            
+            return true;
+        } catch(Exception e){
+            return false;
+        }
+    }
 }

@@ -57,6 +57,28 @@ hr {
     width: 80%;
 }
 
+
+.table-style{
+    width:100%;
+    height:10em;
+    overflow: auto;
+}
+.table-style>tr{
+    display: flex;
+    
+    margin:2em;
+}
+.table-style>tr>td{
+    margin: 1em;
+}
+tr{cursor: pointer;}
+tr:nth-child(even) { background-color: #DCEBE6;}
+tr:hover:nth-child(1n + 2) {
+    background-color: #1cb15fb5;
+    transition: 300ms;
+    color: #fff;
+}
+
 .container {
     background-image: url(../ASSETS/IMAGES/bg-home.jpg);
     background-repeat: no-repeat;
@@ -205,7 +227,7 @@ header>div:nth-child(3){
 }
 
 .card-holder{
-    width: 50%;
+    width: 60%;
     height: fit-content;
     background-color: #c9c8c8;
     z-index: 2;
@@ -229,10 +251,11 @@ header>div:nth-child(3){
     text-align: center;
     align-items: center;
     justify-content: center;
-    background: red;
-    gap: 1em 1em;
+    background: #FFF;
+    gap: 2em;
     display: flex;
     flex-direction: column;
+    padding: 1em;
 }
 
 .card-body > input:focus{
@@ -264,6 +287,19 @@ header>div:nth-child(3){
     width: 90%;
 }
 
+.btn-editar{
+    background-color: yellow !important;
+    color: #000;
+    font-weight: bolder;
+}
+
+.btn-add{
+    background-color: green !important;
+    color: #FFF;
+    font-weight: bolder;
+}
+
+
 .btn:hover {
   background-color: #036735;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
@@ -271,6 +307,18 @@ header>div:nth-child(3){
   z-index: 2;
 }
 
+.container-edit-carrinho{
+    z-index: 10;
+    width: 100%;
+    height:100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(0,0,0,0.5);
+    visibility: hidden;
+}
 
 .container-insert-carrinho{
     z-index: 10;
@@ -287,8 +335,14 @@ header>div:nth-child(3){
 .modal-insert-carrinho{
     width: fit-content;
     height: fit-content;
-    padding: 2em;
+    padding: 4em;
     background: #FFF;
+    border-radius: 7px;
+    gap: 1em 0em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-insert-carrinho input{
